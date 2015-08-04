@@ -65,7 +65,7 @@ for dirname, dirnames, filenames in os.walk(args['inputDir']):
 				glyph = f.createChar(cp)
 			glyph.importOutlines(filePath)
 
-			if args['normalize']:
+			if args['normalize'] and str(name) not in args['ignoreNormalizedGlyph']:
 				glyph.left_side_bearing = glyph.right_side_bearing = 0
 			else:
 				glyph.width = args['fontHeight']
